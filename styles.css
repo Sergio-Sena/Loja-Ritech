@@ -59,5 +59,32 @@ body {
               object-fit: contain; /* Mantém proporção */
             }
           }
+/* Estilos para o Modal */
+#imageModal {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
 
-          
+#imageModal.active {
+  display: flex !important;
+  opacity: 1;
+  visibility: visible;
+}
+
+#imageModal .modal-content {
+  transition: transform 0.3s ease;
+}
+
+#imageModal.active .modal-content {
+  transform: scale(1);
+}
+
+/* Efeito de pulsação suave */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

@@ -281,7 +281,8 @@
                 <img
                   src="./Images/Fechadura-SA-FD01/Fechadura-SA-FD01.jpeg"
                   alt="Fechadura Digital Biométrica"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover cursor-pointer"
+                  onclick="expandImage(this.src)"
                 />
               </div>
               <div class="p-6">
@@ -321,7 +322,8 @@
                 <img
                   src="./Images/Fechadura-SA-FD02/Fechadura-SA-FD02_1.jpg"
                   alt="Fechadura Digital com Senha"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover cursor-pointer"
+                  onclick="expandImage(this.src)"
                 />
               </div>
               <div class="p-6">
@@ -361,7 +363,8 @@
                 <img
                   src="./Images/Fechadura-SA-H12/Fechadura-SA-FD-H12.png"
                   alt="Fechadura Digital Bluetooth"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover cursor-pointer"
+                  onclick="expandImage(this.src)"
                 />
               </div>
               <div class="p-6">
@@ -399,7 +402,8 @@
                 <img
                   src="./Images/Fechadura-SA-H20/Fechadura-SA-H20.jpg"
                   alt="Fechadura Digital Multifuncional"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover cursor-pointer"
+                  onclick="expandImage(this.src)"
                 />
               </div>
               <div class="p-6">
@@ -683,5 +687,22 @@
           window.open(urlWhatsApp, "_blank");
         });
     </script>
+
+    <!-- Modal para Imagem Expandida -->
+    <div
+      id="imageModal"
+      class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-50"
+    >
+      <div
+        class="modal-content max-w-[30vw] max-h-[30vh] flex items-center justify-center"
+      >
+        <img
+          id="expandedImage"
+          src=""
+          alt="Imagem expandida"
+          class="max-w-full max-h-full object-contain"
+        />
+      </div>
+    </div>
   </body>
 </html>
