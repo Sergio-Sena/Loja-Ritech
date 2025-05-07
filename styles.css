@@ -59,32 +59,88 @@ body {
               object-fit: contain; /* Mantém proporção */
             }
           }
-/* Estilos para o Modal */
-#imageModal {
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+/* Botão "Ver Galeria" */
+.gallery-btn {
+  transition: opacity 0.3s ease-in-out;
 }
 
-#imageModal.active {
-  display: flex !important;
+.aspect-video:hover .gallery-btn {
   opacity: 1;
-  visibility: visible;
 }
 
-#imageModal .modal-content {
-  transition: transform 0.3s ease;
+/* Modal de Galeria */
+#galleryModal {
+  display: none; /* Inicialmente oculto */
 }
 
-#imageModal.active .modal-content {
-  transform: scale(1);
+#galleryModal.active {
+  display: flex; /* Exibe o modal */
 }
 
-/* Efeito de pulsação suave */
-.pulse {
-  animation: pulse 2s infinite;
+#expandedImage {
+  max-width: 90%; /* No máximo 90% da tela */
+  max-height: 90%;
+  object-fit: contain; /* Mantém as proporções da imagem */
+  opacity: 1; /* Opacidade inicial */
+  transition: opacity 1ms ease-in-out; /* Animação de fade */
+}
+#expandedImage.fade-out {
+  opacity: 0; /* Opacidade reduzida durante a troca de imagem */
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+/* Botões de navegação (< e >) */
+#prevImage,
+#nextImage {
+  background-color: rgba(0, 123, 255, 0.8); /* Azul primário com transparência */
+  border: none;
+  border-radius: 50%; /* Formato circular */
+  width: 50px; /* Tamanho fixo */
+  height: 50px; /* Tamanho fixo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Cor do ícone */
+  font-size: 2rem; /* Tamanho do ícone */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
+
+#prevImage:hover,
+#nextImage:hover {
+  background-color: rgba(0, 123, 255, 1); /* Azul mais escuro ao passar o mouse */
+  transform: scale(1.1); /* Efeito de ampliação */
+}
+
+/* Botão de fechar (X) */
+#closeGallery {
+  background-color: rgba(220, 53, 69, 0.8); /* Vermelho com transparência */
+  border: none;
+  border-radius: 50%; /* Formato circular */
+  width: 50px; /* Tamanho fixo */
+  height: 50px; /* Tamanho fixo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Cor do ícone */
+  font-size: 1.5rem; /* Tamanho do ícone */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+#closeGallery:hover {
+  background-color: rgba(220, 53, 69, 1); /* Vermelho mais escuro ao passar o mouse */
+  transform: scale(1.1); /* Efeito de ampliação */
+}
+button[id="prevImage"], button[id="nextImage"] {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button[id="prevImage"]:hover, button[id="nextImage"]:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+

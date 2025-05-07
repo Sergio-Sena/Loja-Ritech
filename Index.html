@@ -112,47 +112,45 @@
   </head>
   <body class="gradient-bg min-h-screen text-white font-sans">
     <!-- Header -->
-    <header class="gradient-bg shadow-lg sticky top-0 z-50">
-      <div class="container mx-auto px-4 py-6">
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2">
-            <img
-              src="./Images/Logo-RiTec.jpg"
-              alt="Logo Ritech"
-              class="w-10 h-10"
-            />
-            <h1 class="text-2xl font-bold neon-blue">
-              <a href="./Index.html">Ritech Fechaduras Digitais</a>
-            </h1>
+    <body class="gradient-bg min-h-screen text-white font-sans">
+      <!-- Header -->
+      <header class="gradient-bg shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-6 relative">
+          <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+              <img src="./Images/Logo-RiTec.jpg" alt="Logo Ritech" class="w-10 h-10" />
+              <h1 class="text-2xl font-bold neon-blue">
+                <a href="./Index.html">Ritech Fechaduras Digitais</a>
+              </h1>
+            </div>
+      
+            <!-- Menu Desktop -->
+            <nav aria-label="Menu principal" class="hidden md:block flex-grow text-right">
+              <ul class="flex justify-end space-x-6">
+                <li><a href="#produtos" class="hover:text-blue-200 transition">Produtos</a></li>
+                <li><a href="#servicos" class="hover:text-blue-200 transition">Serviços</a></li>
+                <li><a href="#contato" class="hover:text-blue-200 transition">Contato</a></li>
+              </ul>
+            </nav>
+      
+            <!-- Botão Mobile -->
+            <button id="menuToggle" class="md:hidden text-white focus:outline-none" aria-label="Abrir menu">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
           </div>
-          <nav aria-label="Menu principal" class="hidden md:block">
-            <ul class="flex space-x-6">
-              <li>
-                <a href="#produtos" class="hover:text-blue-200 transition"
-                  >Produtos</a
-                >
-              </li>
-              <li>
-                <a href="#servicos" class="hover:text-blue-200 transition"
-                  >Serviços</a
-                >
-              </li>
-              <li>
-                <a href="#contato" class="hover:text-blue-200 transition"
-                  >Contato</a
-                >
-              </li>
+      
+          <!-- Menu Mobile Dropdown (Overlay à direita) -->
+          <nav id="mobileMenu" class="hidden md:hidden absolute right-4 top-full mt-2 bg-black bg-opacity-80 backdrop-blur-md rounded-lg shadow-lg py-2 min-w-[160px] z-50">
+            <ul class="flex flex-col">
+              <li><a href="#produtos" class="block px-4 py-2 hover:bg-gray-700 transition">Produtos</a></li>
+              <li><a href="#servicos" class="block px-4 py-2 hover:bg-gray-700 transition">Serviços</a></li>
+              <li><a href="#contato" class="block px-4 py-2 hover:bg-gray-700 transition">Contato</a></li>
             </ul>
           </nav>
-          <button
-            class="md:hidden text-white focus:outline-none"
-            aria-label="Menu mobile"
-          >
-            <i class="fas fa-bars text-2xl"></i>
-          </button>
         </div>
-      </div>
-    </header>
+      </header>
+      
 
     <!-- Hero Section -->
     <main>
@@ -252,8 +250,6 @@
               <div class="mt-6">
                 <a
                   href="./Precificacao.html#servicos"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   class="text-2xl font-bold neon-blue hover:text-blue-300 transition duration-300"
                 >
                   Consulte valores aqui
@@ -263,115 +259,104 @@
           </div>
         </div>
       </section>
-      <!-- Produtos -->
-      <section
-        id="produtos"
-        class="py-16 bg-slate-900 bg-opacity-70 backdrop-blur-md"
-      >
+      <section id="produtos" class="py-16 bg-slate-900 bg-opacity-70 backdrop-blur-md">
         <div class="container mx-auto px-4">
           <h2 class="text-3xl font-bold text-center mb-12 neon-blue">
             Nossos Produtos
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Produto 1 -->
-            <article
-              class="bg-slate-800 bg-opacity-70 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl neon-border"
-            >
-              <div class="aspect-video overflow-hidden">
+            <article class="bg-slate-800 bg-opacity-70 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl neon-border">
+              <div class="aspect-video overflow-hidden relative">
                 <img
-                  src="./Images/Fechadura-SA-FD01/corrousel/Foto_1.png"
+                  src="./Images/Fechadura-SA-FD01/corrousel/Foto2.png"
                   alt="Fechadura Digital Biométrica"
                   class="w-full h-full object-cover cursor-pointer"
-                  onclick="expandImage(this.src)"
+                  data-gallery='["./Images/Fechadura-SA-FD01/corrousel/Foto1.png","./Images/Fechadura-SA-FD01/corrousel/Foto2.png","./Images/Fechadura-SA-FD01/corrousel/Foto3.png"]'
                 />
+                <button
+                  class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white py-2 px-4 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 gallery-btn"
+                  onclick="openGallery(this)"
+                >
+                  Ver Galeria
+                </button>
               </div>
               <div class="p-6">
-                <h3 class="text-xl font-semibold text-white mb-2">
-                  Fechadura-FD01
-                </h3>
+                <h3 class="text-xl font-semibold text-white mb-2">Modelo FD01</h3>
                 <ul class="text-slate-300 mb-4 list-disc pl-5">
                   <li>Biometria</li>
                   <li>Tag de proximidade</li>
                   <li>Senha</li>
                   <li>Chave de emergência</li>
                   <li>Aplicativo TUYA para abertura à distância</li>
-                  <li class="font-medium">
-                    Instalação inclusa sem custo adicional
-                  </li>
+                  <li class="font-medium">Instalação inclusa sem custo adicional</li>
                 </ul>
+                <p>Parcelamos em até 10x juros no cartão de crédito</p>
                 <div class="flex justify-between items-center">
-                  <span
-                    class="text-2xl font-bold neon-blue"
-                    aria-label="Preço: R$ 899,00"
-                    >R$ 899,00</span
-                  >
-                  <button
-                    class="comprar-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg hover:shadow-lg transition duration-300"
-                  >
+                  <span class="text-2xl font-bold neon-blue" aria-label="Preço: R$ 899,00">R$ 899,00</span>
+                  <button class="comprar-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg hover:shadow-lg transition duration-300">
                     Comprar
                   </button>
                 </div>
               </div>
             </article>
-
+      
             <!-- Produto 2 -->
-            <article
-              class="bg-slate-800 bg-opacity-70 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl neon-border"
-            >
-              <div class="aspect-video overflow-hidden">
+            <article class="bg-slate-800 bg-opacity-70 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl neon-border">
+              <div class="aspect-video overflow-hidden relative">
                 <img
                   src="./Images/Fechadura-SA-FD02/corrousel/Foto_1.png"
                   alt="Fechadura Digital com Senha"
                   class="w-full h-full object-cover cursor-pointer"
-                  onclick="expandImage(this.src)"
+                  data-gallery='["./Images/Fechadura-SA-FD02/corrousel/Foto_1.png", "./Images/Fechadura-SA-FD02/corrousel/Foto_2.png","./Images/Fechadura-SA-FD02/corrousel/Foto_3.png","./Images/Fechadura-SA-FD02/corrousel/Foto_4.png"]'
                 />
+                <button
+                  class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white py-2 px-4 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 gallery-btn"
+                  onclick="openGallery(this)"
+                >
+                  Ver Galeria
+                </button>
               </div>
               <div class="p-6">
-                <h3 class="text-xl font-semibold text-white mb-2">
-                  Fechadura-FD02
-                </h3>
+                <h3 class="text-xl font-semibold text-white mb-2">Modelo-FD02</h3>
                 <ul class="text-slate-300 mb-4 list-disc pl-5">
                   <li>Biometria</li>
                   <li>Tag de proximidade</li>
                   <li>Senha</li>
                   <li>Chave de emergência</li>
                   <li>Aplicativo TUYA para abertura à distância</li>
-                  <li class="font-medium">
-                    Instalação inclusa sem custo adicional
-                  </li>
+                  <li class="font-medium">Instalação inclusa sem custo adicional</li>
                 </ul>
+                <p>Parcelamos em até 10x juros no cartão de crédito</p>
                 <div class="flex justify-between items-center">
-                  <span
-                    class="text-2xl font-bold neon-blue"
-                    aria-label="Preço: R$ 950,00"
-                    >R$ 950,00</span
-                  >
-                  <button
-                    class="comprar-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg hover:shadow-lg transition duration-300"
-                  >
+                  <span class="text-2xl font-bold neon-blue" aria-label="Preço: R$ 950,00">R$ 950,00</span>
+                  <button class="comprar-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg hover:shadow-lg transition duration-300">
                     Comprar
                   </button>
                 </div>
               </div>
             </article>
-
+      
             <!-- Produto 3 -->
-            <article
-              class="bg-slate-800 bg-opacity-70 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl neon-border"
-            >
-              <div class="aspect-video overflow-hidden">
+            <article class="bg-slate-800 bg-opacity-70 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl neon-border">
+              <div class="aspect-video overflow-hidden relative">
                 <img
                   src="./Images/Fechadura-SA-H12/corrousel/Foto_1.png"
                   alt="Fechadura Digital Bluetooth"
                   class="w-full h-full object-cover cursor-pointer"
-                  onclick="expandImage(this.src)"
+                  data-gallery='["./Images/Fechadura-SA-H12/corrousel/Foto_1.png", "./Images/Fechadura-SA-H12/corrousel/Foto_2.png","./Images/Fechadura-SA-H12/corrousel/Foto_3.png"]'
                 />
+                <button
+                  class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white py-2 px-4 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 gallery-btn"
+                  onclick="openGallery(this)"
+                >
+                  Ver Galeria
+                </button>
               </div>
               <div class="p-6">
-                <h3 class="text-xl font-semibold text-white mb-2">
-                  Fechadura-H12
-                </h3>
+                <h3 class="text-xl font-semibold text-white mb-2">Modelo-H12</h3>
                 <ul class="text-slate-300 mb-4 list-disc pl-5">
+                  <li class="neon-blue">Fechadura digital de embutir com maquinario reforçado,”Padrão europeu” </li> 
                   <li>Biometria</li>
                   <li>Senha</li>
                   <li>Tag de aproximação</li>
@@ -379,53 +364,46 @@
                   <li>Aplicativo com captura de imagem</li>
                   <li>Visor digital integrado</li>
                 </ul>
+                <p>Parcelamos em até 10x juros no cartão de crédito</p>
                 <div class="flex justify-between items-center">
-                  <span
-                    class="text-2xl font-bold neon-blue"
-                    aria-label="Preço: R$ 1.550,00"
-                    >R$ 1.550,00</span
-                  >
-                  <button
-                    class="comprar-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg hover:shadow-lg transition duration-300"
-                  >
+                  <span class="text-2xl font-bold neon-blue" aria-label="Preço: R$ 1.550,00">R$ 1.550,00</span>
+                  <button class="comprar-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg hover:shadow-lg transition duration-300">
                     Comprar
                   </button>
                 </div>
               </div>
             </article>
-
+      
             <!-- Produto 4 -->
-            <article
-              class="bg-slate-800 bg-opacity-70 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl neon-border"
-            >
-              <div class="aspect-video overflow-hidden">
+            <article class="bg-slate-800 bg-opacity-70 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl neon-border">
+              <div class="aspect-video overflow-hidden relative">
                 <img
                   src="./Images/Fechadura-SA-H20/corrousel/Foto_3.png"
                   alt="Fechadura Digital Multifuncional"
                   class="w-full h-full object-cover cursor-pointer"
-                  onclick="expandImage(this.src)"
+                  data-gallery='["./Images/Fechadura-SA-H20/corrousel/Foto_3.png", "./Images/Fechadura-SA-H20/corrousel/Foto_4.png"]'
                 />
+                <button
+                  class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white py-2 px-4 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300 gallery-btn"
+                  onclick="openGallery(this)"
+                >
+                  Ver Galeria
+                </button>
               </div>
               <div class="p-6">
-                <h3 class="text-xl font-semibold text-white mb-2">
-                  Fechadura-H20
-                </h3>
+                <h3 class="text-xl font-semibold text-white mb-2">Modelo-H20</h3>
                 <ul class="text-slate-300 mb-4 list-disc pl-5">
+                  <li class="neon-blue">Fechadura digital de embutir com maquinario reforçado,”Padrão europeu” </li>
                   <li>Biometria</li>
                   <li>Senha</li>
                   <li>Tag de aproximação</li>
                   <li>Reconhecimento facial</li>
                   <li>Aplicativo com captura de imagem</li>
                 </ul>
+                <p>Parcelamos em até 10x juros no cartão de crédito</p>
                 <div class="flex justify-between items-center">
-                  <span
-                    class="text-2xl font-bold neon-blue"
-                    aria-label="Preço: R$ 1.950,00"
-                    >R$ 1.950,00</span
-                  >
-                  <button
-                    class="comprar-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg hover:shadow-lg transition duration-300"
-                  >
+                  <span class="text-2xl font-bold neon-blue" aria-label="Preço: R$ 1.950,00">R$ 1.950,00</span>
+                  <button class="comprar-btn bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg hover:shadow-lg transition duration-300">
                     Comprar
                   </button>
                 </div>
@@ -647,15 +625,23 @@
     </footer>
 
     <!-- Botão flutuante WhatsApp -->
-<a href="https://wa.me/5511966007636" 
-class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"
-target="_blank" 
-rel="noopener noreferrer"
-aria-label="Fale conosco no WhatsApp">
-<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 24 24">
- <path d="M12.04 2.003c-5.53 0-10 4.47-10 10 0 1.77.46 3.5 1.34 5.02L2 22l5.14-1.35A9.96 9.96 0 0012.04 22c5.53 0 10-4.47 10-10s-4.47-10-10-10zm0 18c-1.56 0-3.09-.42-4.42-1.21l-.31-.18-3.05.8.82-2.97-.2-.32a8.004 8.004 0 118.16 3.88zm4.49-5.38c-.25-.13-1.49-.73-1.72-.82-.23-.09-.39-.13-.55.13s-.63.82-.77.99c-.14.17-.28.19-.52.06-.25-.13-1.06-.39-2.02-1.23-.75-.66-1.25-1.47-1.4-1.71-.15-.26-.02-.4.11-.53.11-.11.25-.28.37-.42.12-.14.17-.23.25-.38.08-.15.04-.28-.02-.4-.06-.13-.55-1.33-.76-1.82-.2-.48-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.28-.23.23-.88.86-.88 2.09s.91 2.42 1.03 2.59c.13.17 1.8 2.76 4.38 3.87.61.26 1.08.42 1.45.54.61.19 1.16.16 1.6.1.49-.07 1.49-.61 1.7-1.21.21-.59.21-1.09.14-1.21-.06-.12-.23-.18-.48-.31z"/>
-</svg>
-</a>
+    <a
+      href="https://wa.me/5511966007636"
+      class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Fale conosco no WhatsApp"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6 fill-current"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12.04 2.003c-5.53 0-10 4.47-10 10 0 1.77.46 3.5 1.34 5.02L2 22l5.14-1.35A9.96 9.96 0 0012.04 22c5.53 0 10-4.47 10-10s-4.47-10-10-10zm0 18c-1.56 0-3.09-.42-4.42-1.21l-.31-.18-3.05.8.82-2.97-.2-.32a8.004 8.004 0 118.16 3.88zm4.49-5.38c-.25-.13-1.49-.73-1.72-.82-.23-.09-.39-.13-.55.13s-.63.82-.77.99c-.14.17-.28.19-.52.06-.25-.13-1.06-.39-2.02-1.23-.75-.66-1.25-1.47-1.4-1.71-.15-.26-.02-.4.11-.53.11-.11.25-.28.37-.42.12-.14.17-.23.25-.38.08-.15.04-.28-.02-.4-.06-.13-.55-1.33-.76-1.82-.2-.48-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.28-.23.23-.88.86-.88 2.09s.91 2.42 1.03 2.59c.13.17 1.8 2.76 4.38 3.87.61.26 1.08.42 1.45.54.61.19 1.16.16 1.6.1.49-.07 1.49-.61 1.7-1.21.21-.59.21-1.09.14-1.21-.06-.12-.23-.18-.48-.31z"
+        />
+      </svg>
+    </a>
 
     <!-- Scripts -->
     <script>
@@ -689,22 +675,77 @@ aria-label="Fale conosco no WhatsApp">
           window.open(urlWhatsApp, "_blank");
         });
     </script>
+    <script>
+      function expandImage(src) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
 
-    <!-- Modal para Imagem Expandida -->
-    <div
-      id="imageModal"
-      class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-50"
-    >
-      <div
-        class="modal-content max-w-[30vw] max-h-[30vh] flex items-center justify-center"
-      >
-        <img
-          id="expandedImage"
-          src=""
-          alt="Imagem expandida"
-          class="max-w-full max-h-full object-contain"
-        />
-      </div>
+        modalImg.src = src;
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeImage() {
+        const modal = document.getElementById("imageModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+
+      // Fecha ao pressionar ESC
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeImage();
+        }
+      });
+    </script>
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+    
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    
+      // Fecha o menu se clicar fora dele
+      document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+        }
+      });
+    </script>
+   
+<!-- Modal de Galeria -->
+<div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-80 hidden justify-center items-center z-50">
+  <div class="relative w-3/4 max-w-2xl h-3/4">
+    
+    <!-- Botão Fechar com Font Awesome -->
+    <button id="closeGallery" class="absolute top-4 right-4 text-white text-2xl">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Conteúdo da Imagem -->
+    <div class="flex items-center justify-center h-full">
+      
+      <!-- Seta Esquerda -->
+      <button id="prevImage" class="absolute left-4 text-white text-4xl">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- Imagem Expandida -->
+      <img id="expandedImage" src="" alt="Imagem Expandida" class="max-w-full max-h-full object-contain" />
+
+      <!-- Seta Direita -->
+      <button id="nextImage" class="absolute right-4 text-white text-4xl">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- Painel de Descrição -->
+    <div id="imageDescription" class="mt-4 p-4 bg-slate-800 bg-opacity-70 backdrop-blur-md rounded-lg text-white">
+      <p id="descriptionText"></p>
+    </div>
+  </div>
+</div>
     </div>
   </body>
 </html>

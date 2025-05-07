@@ -47,18 +47,62 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Função para expandir imagem
-function expandImage(imageSrc) {
-  const modal = document.getElementById("imageModal");
-  const expandedImg = document.getElementById("expandedImage");
-  expandedImg.src = imageSrc;
-  modal.classList.add("active");
+// Variáveis globais
+let currentImageIndex = 0;
+let galleryImages = [];
+
+// Função para abrir a galeria
+function openGallery(button) {
+  const imageElement = button.parentElement.querySelector("img");
+  galleryImages = JSON.parse(imageElement.getAttribute("data-gallery"));
+  currentImageIndex = 0;
+
+  // Define a primeira imagem
+  document.getElementById("expandedImage").src = galleryImages[currentImageIndex];
+
+  // Exibe o modal
+  document.getElementById("galleryModal").classList.add("active");
 }
 
-// Fechar modal ao clicar fora da imagem ou pressionar ESC
-document.addEventListener("click", function (e) {
-  const modal = document.getElementById("imageModal");
-  if (e.target === modal || e.key === "Escape") {
-    modal.classList.remove("active");
+// Função para fechar a galeria
+document.addEventListener("DOMContentLoaded", function () {
+  const closeGalleryButton = document.getElementById("closeGallery");
+  if (closeGalleryButton) {
+    closeGalleryButton.addEventListener("click", function () {
+      document.getElementById("galleryModal").classList.remove("active");
+    });
+  }
+
+  // Função para navegar entre as imagens (anterior)
+  const prevButton = document.getElementById("prevImage");
+  if (prevButton) {
+    prevButton.addEventListener("click", function () {
+      if (galleryImages.length > 0) {
+        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+        document.getElementById("expandedImage").src = galleryImages[currentImageIndex];
+      }
+    });
+  }
+
+  // Função para navegar entre as imagens (próxima)
+  const nextButton = document.getElementById("nextImage");
+  if (nextButton) {
+    nextButton.addEventListener("click", function () {
+      if (galleryImages.length > 0) {
+        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+        document.getElementById("expandedImage").src = galleryImages[currentImageIndex];
+      }
+    });
+  }
+
+  // Fechar ao clicar fora do modal
+  const galleryModal = document.getElementById("galleryModal");
+  if (galleryModal) {
+    galleryModal.addEventListener("click", function (e) {
+      if (e.target === this) {
+        this.classList.remove("active");
+      }
+    });
   }
 });
+
