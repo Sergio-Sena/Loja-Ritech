@@ -627,7 +627,7 @@
     <!-- Botão flutuante WhatsApp -->
     <a
       href="https://wa.me/5511966007636"
-      class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50"
+      class="fixed bottom-4 right-4 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition z-50 animate-pulse"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Fale conosco no WhatsApp"
@@ -643,77 +643,7 @@
       </svg>
     </a>
 
-    <!-- Scripts -->
-    <script>
-      // QR Code generation
-      window.addEventListener("DOMContentLoaded", () => {
-        const qr = qrcode(0, "H");
-        qr.addData("https://wa.me/5511966007636");
-        qr.make();
-
-        const qrCodeElement = document.getElementById("qrcode");
-        if (qrCodeElement) {
-          qrCodeElement.innerHTML = qr.createImgTag(4);
-        }
-      });
-
-      // Form submission
-      document
-        .getElementById("whatsappForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          const nome = document.getElementById("nome").value.trim();
-          const email = document.getElementById("email").value.trim();
-          const telefone = document.getElementById("telefone").value.trim();
-          const mensagem = document.getElementById("mensagem").value.trim();
-
-          const textoCompleto = `*Nome:* ${nome}%0A*Email:* ${email}%0A*Telefone:* ${telefone}%0A*Mensagem:* ${mensagem}`;
-          const numeroWhatsApp = "5511966007636";
-          const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${textoCompleto}`;
-
-          window.open(urlWhatsApp, "_blank");
-        });
-    </script>
-    <script>
-      function expandImage(src) {
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImage");
-
-        modalImg.src = src;
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-      }
-
-      function closeImage() {
-        const modal = document.getElementById("imageModal");
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-      }
-
-      // Fecha ao pressionar ESC
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          closeImage();
-        }
-      });
-    </script>
-    <script>
-      const menuToggle = document.getElementById('menuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
     
-      menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    
-      // Fecha o menu se clicar fora dele
-      document.addEventListener('click', (e) => {
-        if (!menuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-          mobileMenu.classList.add('hidden');
-        }
-      });
-    </script>
-   
 <!-- Modal de Galeria -->
 <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-80 hidden justify-center items-center z-50">
   <div class="relative w-3/4 max-w-2xl h-3/4">
