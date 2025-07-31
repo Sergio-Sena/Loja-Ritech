@@ -1,0 +1,25 @@
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Backups
+backups/
+*.backup
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation (keep local only)
+documentacao.md
+
+# Temporary files
+*.tmp
+*.temp
